@@ -17,6 +17,10 @@ Projeto que permite a pesquisa de notícias, de diferentes gêneros, em fontes c
 
         git clone https://github.com/USER/search-news.git
 
+- Instalar as dependências
+
+        pip install -r requirements.txt
+
 - Criar um arquivo ".env" semelhante ao ".env-example", alterando para as credenciais adequadas.
 
         Exemplo: cp .env_example .env
