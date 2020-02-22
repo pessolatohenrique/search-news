@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'news',
+    'sitecontent'
 ]
 
 MIDDLEWARE = [
@@ -83,11 +85,12 @@ WSGI_APPLICATION = 'searchnews.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'search_news',
         'USER': os.getenv("BD_USER"),
         'PASSWORD': os.getenv("BD_PASSWORD"),
-        'HOST': os.getenv("BD_HOST"),   # Or an IP Address that your DB is hosted on
+        # Or an IP Address that your DB is hosted on
+        'HOST': os.getenv("BD_HOST"),
         'PORT': '3306',
     }
 }
