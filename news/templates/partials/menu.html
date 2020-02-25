@@ -1,3 +1,42 @@
-<div>
-  Exemplo de partial - menu
-</div>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  {% for item in categories %}
+  <li><a href="#!">{{item}}</a></li>
+  {% endfor %}
+</ul>
+
+<ul class="sidenav" id="mobile-demo">
+  {% for item in categories %}
+  <li><a href="#!">{{item}}</a></li>
+  {% endfor %}
+  <li>
+    <a href="collapsible.html">
+      Logout
+    </a>
+  </li>
+</ul>
+
+<nav>
+  <div class="nav-wrapper teal lighten-2">
+    <a href="#" class="brand-logo">Search News</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+      ><i class="material-icons">menu</i></a
+    >
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li>
+        <a class="dropdown-trigger" href="#!" data-target="dropdown1"
+          >Categorias<i class="material-icons right">arrow_drop_down</i></a
+        >
+      </li>
+      <li>
+        <a href="collapsible.html">
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script></script>
