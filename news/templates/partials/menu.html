@@ -1,13 +1,13 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
   {% for item in categories %}
-  <li><a href="#!">{{item}}</a></li>
+  <li><a href="{% url 'view' id=item.id %}">{{item}}</a></li>
   {% endfor %}
 </ul>
 
 <ul class="sidenav" id="mobile-demo">
   {% for item in categories %}
-  <li><a href="#!">{{item}}</a></li>
+  <li><a href="{% url 'view' id=item.id %}">{{item}}</a></li>
   {% endfor %}
   <li>
     <a href="collapsible.html">

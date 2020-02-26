@@ -1,0 +1,56 @@
+{% extends 'partials/base.html' %} {% block content %}
+
+<section>
+  {% include "partials/menu.html" with categories=categories %}
+</section>
+
+<div class="container">
+  <h1>{{current_category}}</h1>
+
+  <div class="row">
+    <form method="GET" action="{% url 'search' %}">
+      <div class="col s12 m12">
+        <input type="hidden" name="id" value="{{current_category.id}}" />
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Pesquisa</span>
+
+            <label>Selecione o site</label>
+            <select class="browser-default" name="site_id" selected="2">
+              {% for site in sites %}
+              <option value="{{site.id}}">{{site.name}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="card-action">
+            <button class="btn waves-effect waves-light" type="submit">
+              Pesquisar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    {% for item in timeline %}
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{{item.figure_url}}" />
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">
+            {{item.title}}
+          </span>
+          <p>Publicado em: {{item.published_at}}</p>
+        </div>
+        <div class="card-action">
+          <span class="new badge" data-badge-caption="">{{item.site}}</span>
+          <a href="#">Acessar</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock %}
+</div>

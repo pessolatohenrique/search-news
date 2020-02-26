@@ -22,3 +22,13 @@ class News():
                     timeline_list.append(news)
 
         return timeline_list
+
+    @staticmethod
+    def build_from_category(category, site):
+        timeline_list = []
+        news_list = site.search(category)
+
+        for news in news_list:
+            timeline_list.append(news)
+
+        return timeline_list

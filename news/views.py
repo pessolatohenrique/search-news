@@ -20,3 +20,43 @@ def index(request):
         'categories': categories,
         'timeline': timeline
     })
+
+
+def search(request):
+    category_id = request.GET.get('id')
+    site_id = request.GET.get('site_id')
+    user = User.objects.get(id=2)
+
+    categories = Subject.objects.filter(users=user).order_by('name')
+    sites = Site.objects.order_by('name')
+    current_category = Subject.objects.get(id=category_id)
+    current_site = Site.objects.get(id=site_id)
+    timeline = News.build_from_category(current_category, current_site)
+
+    print(site_id)
+
+    return render(request, 'category.html', {
+        'categories': categories,
+        'sites': sites,
+        'current_category': current_category,
+        'current_site': site_id,
+        'timeline': timeline
+    })
+
+
+def view(request, id):
+    user = User.objects.get(id=2)
+
+    categories = Subject.objects.filter(users=user).order_by('name')
+    sites = Site.objects.order_by('name')
+    current_category = Subject.objects.get(id=id)
+    current_site = Site.objects.get(id=2)
+    timeline = News.build_from_category(current_category, current_site)
+
+    return render(request, 'category.html', {
+        'categories': categories,
+        'sites': sites,
+        'current_category': current_category,
+        'current_site': current_site.id,
+        'timeline': timeline
+    })
