@@ -1,23 +1,25 @@
-{% extends 'partials/base.html' %} {% block content %}
-
+{% extends 'partials/base.html' %} {% load static %}
+<div>
+  {% block title %}Search News | Login {% endblock %}
+</div>
+{% block content %}
 <div class="container">
-  <h1>Login</h1>
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-content">
-          <form method="POST">
-            {% csrf_token %} {{ form.as_p }}
-            <button class="btn waves-effect waves-light" type="submit">
-              Entrar
-            </button>
-          </form>
+  <div class="valign-wrapper row login-box">
+    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+      <h1 class="center-align login-title">
+        <img src="{% static 'imgs/logo.png' %}" alt="Search News" />
+      </h1>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="input-field col s12">
+          {{ form.as_p }}
         </div>
-        <!-- <div class="card-action">
-          <a href="#">Acessar</a>
-        </div> -->
-      </div>
+
+        <button class="btn waves-effect waves-light login-button" type="submit">
+          Entrar
+        </button>
+      </form>
     </div>
   </div>
-  {% endblock %}
 </div>
+{% endblock %}

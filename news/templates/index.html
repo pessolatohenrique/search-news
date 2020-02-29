@@ -1,5 +1,10 @@
-{% extends 'partials/base.html' %} {% block content %}
+{% extends 'partials/base.html' %}
 
+<div>
+  {% block title %}Timeline principal {% endblock %}
+</div>
+
+{% block content %}
 <section>
   {% include "partials/menu.html" with categories=categories %}
 </section>

@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="full-page">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="" />
@@ -24,9 +24,26 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Título -->
-    <title>Search News</title>
+    <title>{% block title%}{% endblock %}</title>
 
     <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'imgs/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'imgs/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'imgs/favicon-16x16.png' %}"
+    />
 
     <!-- Stylesheet -->
     <link
