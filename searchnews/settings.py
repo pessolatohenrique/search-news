@@ -65,7 +65,10 @@ ROOT_URLCONF = 'searchnews.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'news/templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'news/templates'),
+            os.path.join(BASE_DIR, 'auth/templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,3 +141,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     'searchnews/static',
 ]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login'

@@ -10,7 +10,7 @@
   <li><a href="{% url 'view' id=item.id %}">{{item}}</a></li>
   {% endfor %}
   <li>
-    <a href="collapsible.html">
+    <a href="{% url 'logout' %}">
       Logout
     </a>
   </li>
@@ -31,7 +31,7 @@
         >
       </li>
       <li>
-        <a href="collapsible.html">
+        <a href="{% url 'logout' %}">
           Logout
         </a>
       </li>
