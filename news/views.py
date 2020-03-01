@@ -4,10 +4,12 @@ from subject.models import Subject
 from sitecontent.models import Site
 from news.models import News
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 
+@login_required(login_url='/login/')
 def index(request):
     user = User.objects.get(id=request.user.id)
 
@@ -22,6 +24,7 @@ def index(request):
     })
 
 
+@login_required(login_url='/login/')
 def search(request):
     category_id = request.GET.get('id')
     site_id = request.GET.get('site_id')
@@ -44,6 +47,7 @@ def search(request):
     })
 
 
+@login_required(login_url='/login/')
 def view(request, id):
     user = User.objects.get(id=request.user.id)
 
