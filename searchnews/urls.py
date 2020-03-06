@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from account import views
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-
 
 admin.site.site_header = 'Search News - Administrativo'
 admin.site.site_title = 'Admin'
@@ -31,6 +31,6 @@ urlpatterns = [
     path('', include('news.urls')),
     url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
-
+    url(r'^register/$', views.register, name= 'register'),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
