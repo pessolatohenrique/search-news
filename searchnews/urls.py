@@ -29,8 +29,10 @@ urlpatterns = [
     url(r'^jet/dashboard/', include('jet.dashboard.urls',
                                     'jet-dashboard')),  # Django JET dashboard URLS
     path('', include('news.urls')),
+    path('subject/', include('subject.urls')),
+    # url(r'^subject/$', include('subject.urls')),
     url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
-    url(r'^register/$', views.register, name= 'register'),
+    url(r'^register/$', views.register, name='register'),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
