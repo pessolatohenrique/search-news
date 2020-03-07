@@ -1,17 +1,18 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
-import datetime
+from account.forms import SignUpForm
 
 
 def register(request):
     if (request.method == 'POST'):
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if (form.is_valid()):
-            form.save()
+            user = form.save()
+            login(request, user)
             return redirect('/')
         else:
             return render(request, 'register.html', {'form': form})
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
         return render(request, 'register.html', {'form': form})
