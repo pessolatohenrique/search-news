@@ -13,6 +13,15 @@ class News():
 
     @staticmethod
     def build_timeline(categories, sites) -> list:
+        """constrói a lista de timeline do site 
+
+        Arguments:
+            categories {list} -- categorias a serem percorridas
+            sites {list} -- sites a serem percorridos
+
+        Returns:
+            list -- lista com as principais notícias encontradas
+        """
         timeline_list = []
         for category in categories:
             for site in sites:
@@ -25,6 +34,15 @@ class News():
 
     @staticmethod
     def build_from_category(category, site) -> list:
+        """constrói a lista de notícias de acordo com uma categoria
+
+        Arguments:
+            category {object} -- dados de uma categoria
+            site {object} -- dados de um site
+
+        Returns:
+            list -- lista com as principais notícias encontradas
+        """
         timeline_list = []
         news_list = site.search(category)
 

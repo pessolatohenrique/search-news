@@ -19,9 +19,25 @@ class Site(models.Model):
         return self.name
 
     def get_url_search(self, subject) -> str:
+        """obtem a url de pesquisa, de acordo com um assunto
+
+        Arguments:
+            subject {string} -- assunto pesquisado
+
+        Returns:
+            str -- url completa, incluindo o assunto pesquisado
+        """
         return f'{self.url}?q={subject}'
 
     def get_figure_url(self, news) -> str:
+        """obtem a URL para imagem de uma notícia
+
+        Arguments:
+            news {object} -- contém informações gerais de uma notícia
+
+        Returns:
+            str -- [str] URL de imagem da notícia
+        """
         figure = news.find('img')
         figure_url = '#N/D'
 
@@ -34,6 +50,14 @@ class Site(models.Model):
         return figure_url
 
     def get_title(self, news) -> str:
+        """obtém o título da notícia
+
+        Arguments:
+            news {object} -- contém informações gerais de uma notícia 
+
+        Returns:
+            str -- título da notícia
+        """
         title = news.find(class_=self.title_class)
 
         if (self.tag_title):
@@ -44,6 +68,14 @@ class Site(models.Model):
         return title
 
     def search(self, subject) -> list:
+        """pesquisa notícias de acordo com o assunto especificado
+
+        Arguments:
+            subject {string} -- assunto pesquisado
+
+        Returns:
+            list -- lista de notícias encontradas
+        """
         url = self.get_url_search(subject)
         page = requests.get(url)
         soup = BeautifulSoup(page.text, 'html.parser')
@@ -58,7 +90,6 @@ class Site(models.Model):
 
             founded = News(figure_url, title, published_at, subject, self.name)
 
-            # news_list.append(founded)
             news_list.append(founded)
 
         return news_list
