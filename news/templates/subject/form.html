@@ -1,0 +1,34 @@
+{% extends '../partials/base.html' %}
+
+<div>
+  {% block title%}Cadastrar novo tema{% endblock %}
+</div>
+
+{% block content %}
+<section>
+  {% include "../partials/menu.html" with categories=categories %}
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12">
+      <h1>
+        Novo tema
+      </h1>
+      <div class="card">
+        <div class="card-content">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="input-field col s12">
+              {{ form.as_p }}
+            </div>
+
+            <button class="btn waves-effect waves-light" type="submit">
+              Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
