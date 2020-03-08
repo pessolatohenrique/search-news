@@ -11,12 +11,20 @@
 
 <div class="container">
   <h1>{{current_category}}</h1>
+  <div class="fixed-action-btn">
+    <a
+      class="btn-floating btn-large btn waves-effect waves-light btn-search"
+      href="{% url 'subject_create' %}"
+    >
+      <i class="material-icons">search</i>
+    </a>
+  </div>
 
   <div class="row">
     <form method="GET" action="{% url 'search' %}">
       <div class="col s12 m12">
         <input type="hidden" name="id" value="{{current_category.id}}" />
-        <div class="card">
+        <div class="card card-search">
           <div class="card-content">
             <span class="card-title">Pesquisa</span>
 
