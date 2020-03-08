@@ -12,6 +12,9 @@
 <div class="container">
   <h1>Timeline principal</h1>
   <div class="row">
+    <div>
+      {% if categories|length == 0 %} {% include "noresults.html" %} {% endif %}
+    </div>
     {% for item in timeline %}
     <div class="col s12 m6">
       <div class="card">

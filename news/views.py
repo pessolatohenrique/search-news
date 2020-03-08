@@ -11,9 +11,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/login/')
 def index(request):
-    user = User.objects.get(id=request.user.id)
+    categories = Subject.objects.filter(users=request.user).order_by('name')
 
-    categories = Subject.objects.filter(users=user).order_by('name')
     categories_timeline = categories[0:3]
     sites = Site.objects.filter(id=2).order_by('name').all()
     timeline = News.build_timeline(categories_timeline, sites)

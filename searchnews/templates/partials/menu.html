@@ -6,6 +6,11 @@
 </ul>
 
 <ul class="sidenav" id="mobile-demo">
+  <li>
+    <a href="{% url 'subject_index' %}">
+      Meu perfil
+    </a>
+  </li>
   {% for item in categories %}
   <li><a href="{% url 'view' id=item.id %}">{{item}}</a></li>
   {% endfor %}
@@ -18,7 +23,7 @@
 
 <nav>
   <div class="nav-wrapper teal lighten-2">
-    <a href="#" class="brand-logo">Search News</a>
+    <a href="{% url 'index' %}" class="brand-logo">Search News</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"
       ><i class="material-icons">menu</i></a
     >

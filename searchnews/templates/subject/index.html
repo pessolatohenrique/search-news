@@ -20,6 +20,8 @@
           <i class="material-icons">add</i>
         </a>
       </div>
+
+      {% if categories|length > 0%}
       <div class="card">
         <div class="card-content">
           <table>
@@ -57,6 +59,7 @@
         </div>
       </div>
     </div>
+    {% else %} {% include 'subject/noresults.html' %} {% endif %}
   </div>
 </div>
 {% endblock %}
