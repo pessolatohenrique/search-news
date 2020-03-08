@@ -6,8 +6,5 @@ from . import views
 urlpatterns = [
     path('', views.index, name='subject_index'),
     url(r'^create', views.create, name='subject_create'),
-    url(r'^delete', views.delete, name='subject_delete'),
-
-    # path('categories', views.search, name='search'),
-    # path('categories/<int:id>', views.view, name='view')
+    url(r'^delete', views.delete, name='subject_delete')
 ]

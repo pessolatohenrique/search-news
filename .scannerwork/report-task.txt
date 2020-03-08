@@ -1,0 +1,6 @@
+projectKey=searchnews
+serverUrl=http://localhost:9000
+serverVersion=8.1.0.31237
+dashboardUrl=http://localhost:9000/dashboard?id=searchnews
+ceTaskId=AXC7OD8yhr-k55okgUTZ
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXC7OD8yhr-k55okgUTZ

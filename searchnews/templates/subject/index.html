@@ -17,18 +17,18 @@
           class="btn-floating btn-large btn waves-effect waves-light"
           href="{% url 'subject_create' %}"
         >
-          <i class="material-icons">add</i>
+          <i class="material-icons" aria-hidden="true">add</i>
         </a>
       </div>
 
       {% if categories|length > 0%}
       <div class="card">
         <div class="card-content">
-          <table>
+          <table aria-describedby="categories table">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Name</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
               </tr>
             </thead>
 
@@ -47,7 +47,8 @@
                       class="waves-effect waves-light btn red darken-3"
                       type="submit"
                     >
-                      <i class="material-icons left">block</i>Excluir
+                      <i class="material-icons left" aria-hidden="true">block</i
+                      >Excluir
                     </button>
                   </form>
                 </td>

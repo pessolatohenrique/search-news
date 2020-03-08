@@ -16,7 +16,7 @@
       class="btn-floating btn-large btn waves-effect waves-light btn-search"
       href="{% url 'subject_create' %}"
     >
-      <i class="material-icons">search</i>
+      <i class="material-icons" aria-hidden="true">search</i>
     </a>
   </div>
 
@@ -49,7 +49,11 @@
     <div class="col s12 m6">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{item.figure_url}}" />
+          <img
+            class="activator"
+            src="{{item.figure_url}}"
+            alt="{{item.title}}"
+          />
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">
