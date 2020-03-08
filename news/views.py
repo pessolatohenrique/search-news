@@ -36,8 +36,6 @@ def search(request):
     current_site = Site.objects.get(id=site_id)
     timeline = News.build_from_category(current_category, current_site)
 
-    print(site_id)
-
     return render(request, 'category.html', {
         'categories': categories,
         'sites': sites,

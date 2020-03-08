@@ -12,7 +12,7 @@ class News():
         self.site = site
 
     @staticmethod
-    def build_timeline(categories, sites):
+    def build_timeline(categories, sites) -> list:
         timeline_list = []
         for category in categories:
             for site in sites:
@@ -24,7 +24,7 @@ class News():
         return timeline_list
 
     @staticmethod
-    def build_from_category(category, site):
+    def build_from_category(category, site) -> list:
         timeline_list = []
         news_list = site.search(category)
 

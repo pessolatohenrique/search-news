@@ -18,10 +18,10 @@ class Site(models.Model):
     def __str__(self):
         return self.name
 
-    def get_url_search(self, subject):
+    def get_url_search(self, subject) -> str:
         return f'{self.url}?q={subject}'
 
-    def get_figure_url(self, news):
+    def get_figure_url(self, news) -> str:
         figure = news.find('img')
         figure_url = '#N/D'
 
@@ -33,7 +33,7 @@ class Site(models.Model):
 
         return figure_url
 
-    def get_title(self, news):
+    def get_title(self, news) -> str:
         title = news.find(class_=self.title_class)
 
         if (self.tag_title):
@@ -43,11 +43,7 @@ class Site(models.Model):
 
         return title
 
-    def show_info(self, figure, title, published_at):
-        print(
-            f"- {title.strip()}, publicada em {published_at.strip()}. \n Imagem referência: {figure}\n")
-
-    def search(self, subject):
+    def search(self, subject) -> list:
         url = self.get_url_search(subject)
         page = requests.get(url)
         soup = BeautifulSoup(page.text, 'html.parser')
