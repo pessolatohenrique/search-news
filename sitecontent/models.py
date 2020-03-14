@@ -27,7 +27,8 @@ class Site(models.Model):
         Returns:
             str -- url completa, incluindo o assunto pesquisado
         """
-        return f'{self.url}?q={subject}'
+        str_search = f'{self.url}?q={subject}'
+        return str_search
 
     def get_figure_url(self, news) -> str:
         """obtem a URL para imagem de uma notícia
