@@ -21,7 +21,7 @@ six==1.14.0
 sqlparse==0.3.0
 wrapt==1.11.2
 beautifulsoup4==4.8.2
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 idna==2.8
 requests==2.22.0
